@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/JonathanPrince/brita/issues"
   },
-  "homepage": "https://github.com/JonathanPrince/brita"
+  "homepage": "https://github.com/JonathanPrince/brita",
+  "devDependencies": {
+    "expect": "^0.1.1",
+    "jshint": "^2.5.6",
+    "mocha": "^1.21.5",
+    "testem": "^0.6.22"
+  }
 }
