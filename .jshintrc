@@ -20,7 +20,6 @@
     "And": false,
     "beforeEach": false
   },
-  "asi": true,
   "node": true,
   "indent": 2,
   "esnext": true,

@@ -4,7 +4,9 @@
   "description": "Object Filter Module for nodejs",
   "main": "index.js",
   "scripts": {
-    "test": "testem ."
+    "test:dev": "testem .",
+    "test": "npm run jshint && mocha -R spec test/**/*.spec.js",
+    "jshint": "jshint ."
   },
   "repository": {
     "type": "git",
@@ -22,7 +24,8 @@
   },
   "homepage": "https://github.com/JonathanPrince/brita",
   "devDependencies": {
-    "expect": "^0.1.1",
+    "catch-error": "0.0.1",
+    "expect.js": "^0.3.1",
     "jshint": "^2.5.6",
     "mocha": "^1.21.5",
     "testem": "^0.6.22"
