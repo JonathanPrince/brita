@@ -1,0 +1,24 @@
+{
+  "name": "brita",
+  "version": "1.0.0",
+  "description": "Object Filter Module for nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "testem ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JonathanPrince/brita.git"
+  },
+  "keywords": [
+    "object",
+    "filter",
+    "filter"
+  ],
+  "author": "Jonathan Prince <jonathan.prince@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JonathanPrince/brita/issues"
+  },
+  "homepage": "https://github.com/JonathanPrince/brita"
+}
