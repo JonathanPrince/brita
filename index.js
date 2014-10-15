@@ -8,6 +8,10 @@ module.exports = function(obj, filter){
   assert.equal(typeof obj, 'object', 'first argument passed to brita should be an object');
   assert.equal(typeof filter, 'function', 'second argument passed to brita should be a function');
 
+  if (filter() === false) {
+    return {};
+  }
+
   return obj;
 
 };
