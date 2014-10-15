@@ -67,5 +67,24 @@ describe('brita module', function(){
       });
     });
 
+    describe('when passing a filter function that always returns false', function(){
+      it('should return an empty object', function(){
+        //arrange
+        var testObj = {
+          one:   '1',
+          two:   '2',
+          three: '3',
+          four:  '4'
+        };
+        var falsyFilter = function(){
+          return false;
+        };
+        // act
+        var result = brita(testObj, falsyFilter);
+        // assert
+        expect(result).to.eql({});
+      });
+    });
+
   });
 });
