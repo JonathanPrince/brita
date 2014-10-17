@@ -86,8 +86,8 @@ describe('brita module', function(){
       });
     });
 
-    describe('when passing a filter function', function(){
-      it('should return filtered object', function(){
+    describe('when passing a filter function that return true for values less than 3', function(){
+      it('should return filtered object with key value pairs where the value is less than 3', function(){
         //arrange
         var testObj = {
           one:   '1',
