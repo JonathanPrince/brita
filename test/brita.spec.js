@@ -86,5 +86,31 @@ describe('brita module', function(){
       });
     });
 
+    describe('when passing a filter function', function(){
+      it('should return filtered object', function(){
+        //arrange
+        var testObj = {
+          one:   '1',
+          two:   '2',
+          three: '3',
+          four:  '4'
+        };
+        var filteredObj = {
+          one:   '1',
+          two:   '2'
+        };
+        var filter = function(value){
+          if (value < 3) {
+            return true;
+          }
+          return false;
+        };
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql(filteredObj);
+      });
+    });
+
   });
 });
