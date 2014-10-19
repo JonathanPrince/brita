@@ -14,8 +14,11 @@ Object Filter Module for nodejs
 
 ####Parameters
 **object**
+
   Object to be filtered
+
 **filter**
+
   Function to be used to filter the object. Should return true or false.
  
 ##Usage
