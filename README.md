@@ -1,5 +1,4 @@
 #brita
-=====
 
 ** Module is still in development - do not use ... YET!**
 
@@ -8,11 +7,18 @@
 [![NPM](https://nodei.co/npm/brita.png?downloads=true)](https://nodei.co/npm/brita/)
 
 ##Description
-====
 Object Filter Module for nodejs
 
+###Syntax
+`brita(object, filter)`
+
+####Parameters
+**object**
+  Object to be filtered
+**filter**
+  Function to be used to filter the object. Should return true or false.
+ 
 ##Usage
-====
 Install the brita module using npm
 ```
 $ npm install brita
