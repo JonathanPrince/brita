@@ -31,7 +31,16 @@ module.exports = function(obj, filter){
   } else if (typeof filter === 'object') {
 
     if (filter.format === 'array') {
+      
       var arr = [];
+
+      Object.keys(obj).forEach(function(key){
+
+        // add values to array
+        arr.push(obj[key]);
+
+      });
+
       return arr;
     }
 
