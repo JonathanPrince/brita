@@ -1,6 +1,6 @@
 {
   "name": "brita",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Object Filter Module for nodejs",
   "main": "index.js",
   "scripts": {
