@@ -193,6 +193,26 @@ describe('brita module', function(){
         expect(result).to.be.an('array');
       });
     });
+
+    describe('a filter object with key value pair format: array', function(){
+      it('should return an array with values from the testObj', function(){
+        //arrange
+        var testObj = {
+          one:   1,
+          two:   2,
+          three: 3,
+          four:  4
+        };
+        var filter = {
+          format: 'array'
+        };
+        var expected = [1, 2, 3, 4];
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result.length).to.equal(expected.length);
+      });
+    });
   
   });
 
