@@ -62,7 +62,7 @@ console.log(filteredObject)             //   returns { key1: 1, key2: 2 }
 
 ###Options for filtering object
 
-| Key     | Values | Description      |
-|---------|--------|------------------|
-| format  | array  | returns an array | 
-|         |        |                  |
+| Key     | Values   | Description      |
+|---------|----------|------------------|
+| format  | array    | returns an array | 
+| filter  | function | filter function returns true or false for each value |
