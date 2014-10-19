@@ -213,6 +213,29 @@ describe('brita module', function(){
         expect(result.length).to.equal(expected.length);
       });
     });
+
+    describe('a filter object { format: array, filter: func() }', function(){
+      it('should return a filtered array', function(){
+        //arrange
+        var testObj = {
+          one:   1,
+          two:   2,
+          three: 3,
+          four:  4
+        };
+        var filter = {
+          format: 'array',
+          filter: function(value){
+            return (value === 3);
+          }
+        };
+        var expected = [3];
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql(expected);
+      });
+    });
   
   });
 
