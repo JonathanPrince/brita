@@ -6,23 +6,35 @@ module.exports = function(obj, filter){
 
   // check argument type
   assert.equal(typeof obj, 'object', 'first argument passed to brita should be an object');
-  assert.equal(typeof filter, 'function', 'second argument passed to brita should be a function');
+  assert.notEqual(typeof filter, 'string', 'second argument passed to brita should be a function or an object');
+  assert.notEqual(typeof filter, 'number', 'second argument passed to brita should be a function or an object');
 
-  var filteredObject = {};
+  if (typeof filter === 'function'){
 
-  Object.keys(obj).forEach(function(key){
-  	
-  	var value = obj[key];
-  	
-  	// check if filter function returns true for value
-  	if (filter.call(null, value) === true){
+    var filteredObject = {};
 
-  		// add key value pair to filtered obj
-  		filteredObject[key] = obj[key];
-  	}
+    Object.keys(obj).forEach(function(key){
 
-  });
+      var value = obj[key];
 
-  return filteredObject;
+      // check if filter function returns true for value
+      if (filter.call(null, value) === true){
+
+        // add key value pair to filtered obj
+        filteredObject[key] = obj[key];
+      }
+
+    });
+
+    return filteredObject;
+
+  } else if (typeof filter === 'object') {
+
+    if (filter.format === 'array') {
+      var arr = [];
+      return arr;
+    }
+
+  }
 
 };
