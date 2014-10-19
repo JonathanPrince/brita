@@ -112,5 +112,30 @@ describe('brita module', function(){
       });
     });
 
+    describe('when passing a filter function that return true for a given string', function(){
+      it('should return filtered object with key value pairs where the value equal given string', function(){
+        //arrange
+        var testObj = {
+          one:   'one',
+          two:   'two',
+          three: 'three',
+          four:  'four'
+        };
+        var filteredObj = {
+          three:   'three'
+        };
+        var filter = function(value){
+          if (value === 'three') {
+            return true;
+          }
+          return false;
+        };
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql(filteredObj);
+      });
+    });
+
   });
 });
