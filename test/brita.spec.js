@@ -137,5 +137,27 @@ describe('brita module', function(){
       });
     });
 
+    describe('when passing a filter function that return true for a given string', function(){
+      it('should return an empty object if the object has no string values', function(){
+        //arrange
+        var testObj = {
+          one:   1,
+          two:   2,
+          three: 3,
+          four:  4
+        };
+        var filter = function(value){
+          if (value === 'three') {
+            return true;
+          }
+          return false;
+        };
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql({});
+      });
+    });
+
   });
 });
