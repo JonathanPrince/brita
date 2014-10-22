@@ -236,6 +236,29 @@ describe('brita module', function(){
         expect(result).to.eql(expected);
       });
     });
+
+    describe('a filter object with key value pair filter: string', function(){
+      it('should return an object containing only string values', function(){
+        //arrange
+        var testObj = {
+          one:   1,
+          two:   '2',
+          three: 3,
+          four:  '4'
+        };
+        var filter = {
+          filter: 'string'
+        };
+        var expected = {
+          two:  '2',
+          four: '4'
+        };
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql(expected);
+      });
+    });
   
   });
 
