@@ -44,6 +44,7 @@ module.exports = function(obj, filter){
 
   };
 
+  // if filter argument is a function apply with filterObject() and return
   if (typeof filter === 'function'){
 
     return filterObject(obj, filter);
@@ -54,8 +55,9 @@ module.exports = function(obj, filter){
 
     var filteredObject = filterObject(obj, filterFunction);
 
+    // check if format option is set to array else return filtered object
     if (filter.format === 'array') {
-      
+
       var arr = [];
 
       Object.keys(filteredObject).forEach(function(key){
@@ -70,7 +72,7 @@ module.exports = function(obj, filter){
     } else {
 
       return filteredObject;
-    
+
     }
 
   }

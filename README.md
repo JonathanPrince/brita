@@ -17,7 +17,7 @@ Object Filter Module for nodejs
 
 **filter**
 
-  Function or Object. 
+  Function or Object.
 
   A function to be used to filter the object, should return true or false.
 
@@ -62,7 +62,7 @@ console.log(filteredObject)             //   returns { key1: 1, key2: 2 }
 
 ###Options for filtering object
 
-| Key     | Values   | Description      |
-|---------|----------|------------------|
-| format  | array    | returns an array | 
-| filter  | function | filter function returns true or false for each value |
+| Key     | Value    |   type   | Description      |
+|---------|----------|----------|------------------|
+| format  | "array"  | String   |returns an array  |
+| filter  | function | Function |filter function should return true or false for each value |
