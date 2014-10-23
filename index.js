@@ -13,7 +13,7 @@ module.exports = function(obj, filter){
 
     // check filter string
     if (typeof filter.filter !== 'string') {
-      return true
+      return true;
     }
     var typeFilter = filter.filter;
     if (typeof value === typeFilter) {
