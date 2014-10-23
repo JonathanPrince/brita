@@ -9,13 +9,21 @@ module.exports = function(obj, filter){
   assert.notEqual(typeof filter, 'string', 'second argument passed to brita should be a function or an object');
   assert.notEqual(typeof filter, 'number', 'second argument passed to brita should be a function or an object');
 
-  var returnTrue = function(){
-    return true;
+  var objectFilter = function(value){
+
+    // check filter string
+    if (typeof filter.filter !== 'string') {
+      return true
+    }
+    var typeFilter = filter.filter;
+    if (typeof value === typeFilter) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   var filterObject = function(objectToFilter, filterFunction){
-
-    filterFunction = filterFunction || returnTrue;
 
     var result = {};
 
@@ -42,7 +50,9 @@ module.exports = function(obj, filter){
 
   } else if (typeof filter === 'object') {
 
-    var filteredObject = filterObject(obj, filter.filter);
+    var filterFunction = (typeof filter.filter !== 'function')? objectFilter : filter.filter;
+
+    var filteredObject = filterObject(obj, filterFunction);
 
     if (filter.format === 'array') {
       
