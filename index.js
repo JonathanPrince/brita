@@ -11,15 +11,14 @@ module.exports = function(obj, filter){
 
   var objectFilter = function(value){
 
-    // check filter string
-    if (typeof filter.filter !== 'string') {
+    if (typeof value === filter.value) {
+
       return true;
-    }
-    var typeFilter = filter.filter;
-    if (typeof value === typeFilter) {
-      return true;
+
     } else {
+
       return false;
+
     }
   };
 
@@ -51,29 +50,7 @@ module.exports = function(obj, filter){
 
   } else if (typeof filter === 'object') {
 
-    var filterFunction = (typeof filter.filter !== 'function')? objectFilter : filter.filter;
-
-    var filteredObject = filterObject(obj, filterFunction);
-
-    // check if format option is set to array else return filtered object
-    if (filter.format === 'array') {
-
-      var arr = [];
-
-      Object.keys(filteredObject).forEach(function(key){
-
-        // add values to array
-        arr.push(filteredObject[key]);
-
-      });
-
-      return arr;
-
-    } else {
-
-      return filteredObject;
-
-    }
+    return filterObject(obj, objectFilter);
 
   }
 
