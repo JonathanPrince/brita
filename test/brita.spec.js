@@ -36,13 +36,25 @@ describe('brita module', function(){
       });
     });
 
-    describe('passing an invalid filter function argument', function () {
+    describe('passing a string as filter argument', function () {
       it('should throw an exception', function () {
         //arrange
         var testObj = {};
-        var filterFunc = 'function(){}';
+        var str = 'string';
         //act
-        var result = catchErr(brita, testObj, filterFunc);
+        var result = catchErr(brita, testObj, str);
+        //assert
+        expect(result).to.be.an(Error);
+      });
+    });
+
+    describe('passing a number as filter argument', function () {
+      it('should throw an exception', function () {
+        //arrange
+        var testObj = {};
+        var num = 5;
+        //act
+        var result = catchErr(brita, testObj, num);
         //assert
         expect(result).to.be.an(Error);
       });
@@ -160,4 +172,55 @@ describe('brita module', function(){
     });
 
   });
+
+  describe('when passing an object as the filter argument', function(){
+
+    describe('a filter object with key value pair valueType: string', function(){
+      it('should return an object containing only string values', function(){
+        //arrange
+        var testObj = {
+          one:   1,
+          two:   '2',
+          three: 3,
+          four:  '4'
+        };
+        var filter = {
+          valueType: 'string'
+        };
+        var expected = {
+          two:  '2',
+          four: '4'
+        };
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql(expected);
+      });
+    });
+
+    describe('a filter object with key value pair valueType: number', function(){
+      it('should return an object containing only number values', function(){
+        //arrange
+        var testObj = {
+          one:   1,
+          two:   '2',
+          three: 3,
+          four:  '4'
+        };
+        var filter = {
+          valueType: 'number'
+        };
+        var expected = {
+          one:   1,
+          three: 3,
+        };
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql(expected);
+      });
+    });
+
+  });
+
 });

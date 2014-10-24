@@ -17,14 +17,18 @@ Object Filter Module for nodejs
 
 **filter**
 
-  Function to be used to filter the object. Should return true or false.
+  Function or Object.
+
+  A function to be used to filter the object, should return true or false.
+
+  An object containing filter options.
 
 ##Usage
 Install the brita module using npm
 ```
 $ npm install brita
 ```
-Example
+ Basic Example
 ```js
 // require brita module
 var brita = require('brita');
@@ -54,5 +58,36 @@ var filteredObject = brita(myObject, myFilter);
 // output from brita has been assigned to filteredObject
 console.log(filteredObject)             //   returns { key1: 1, key2: 2 }
 
+```
+
+###Using built in filter options
+
+Built-in filter options can be used by passing an object as the second parameter.
+
+| Key     | value      | Description      |
+|---------|------------|------------------|
+| valueType   | 'string'   |returns all key value pairs with values that are strings |
+| valueType   | 'number'   |returns all key value pairs with values that are numbers |
+
+
+Example using built-in type filter
+```js
+// require brita module
+var brita = require('brita');
+
+// object to be filtered
+var myObject = {
+    key1: 1,
+    key2: '2',
+    key3: 3,
+    key4: '4'
+};
+
+// apply filter to create new object filtered by brita
+var filteredObject = brita(myObject, {valueType: 'string'});
+
+// output from brita has been assigned to filteredObject
+console.log(filteredObject)             //   returns { key2: '2', key4: '4' }
 
 ```
+
