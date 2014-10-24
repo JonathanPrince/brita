@@ -259,7 +259,30 @@ describe('brita module', function(){
         expect(result).to.eql(expected);
       });
     });
-  
+
+    describe('a filter object with key value pair filter: number', function(){
+      it('should return an object containing only number values', function(){
+        //arrange
+        var testObj = {
+          one:   1,
+          two:   '2',
+          three: 3,
+          four:  '4'
+        };
+        var filter = {
+          filter: 'number'
+        };
+        var expected = {
+          one:   1,
+          three: 3,
+        };
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql(expected);
+      });
+    });
+
   });
 
 });
