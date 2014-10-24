@@ -6,8 +6,8 @@ module.exports = function(obj, filter){
 
   // check argument type
   assert.equal(typeof obj, 'object', 'first argument passed to brita should be an object');
-  assert.notEqual(typeof filter, 'string', 'second argument passed to brita should be a function or an object');
-  assert.notEqual(typeof filter, 'number', 'second argument passed to brita should be a function or an object');
+  assert.ok(typeof filter === 'object' ||
+            typeof filter === 'function', 'second argument passed to brita should be a function or an object');
 
   var objectFilter = function(value){
 
