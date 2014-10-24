@@ -66,8 +66,8 @@ Built-in filter options can be used by passing an object as the second parameter
 
 | Key     | value      | Description      |
 |---------|------------|------------------|
-| value   | 'string'   |returns all key value pairs with values that are strings |
-| value   | 'number'   |returns all key value pairs with values that are numbers |
+| valueType   | 'string'   |returns all key value pairs with values that are strings |
+| valueType   | 'number'   |returns all key value pairs with values that are numbers |
 
 
 Example using built-in type filter
@@ -84,7 +84,7 @@ var myObject = {
 };
 
 // apply filter to create new object filtered by brita
-var filteredObject = brita(myObject, {value: 'string'});
+var filteredObject = brita(myObject, {valueType: 'string'});
 
 // output from brita has been assigned to filteredObject
 console.log(filteredObject)             //   returns { key2: '2', key4: '4' }

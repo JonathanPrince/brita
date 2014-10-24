@@ -11,7 +11,7 @@ module.exports = function(obj, filter){
 
   var objectFilter = function(value){
 
-    if (typeof value === filter.value) {
+    if (typeof value === filter.valueType) {
 
       return true;
 

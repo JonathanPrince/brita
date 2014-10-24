@@ -175,7 +175,7 @@ describe('brita module', function(){
 
   describe('when passing an object as the filter argument', function(){
 
-    describe('a filter object with key value pair value: string', function(){
+    describe('a filter object with key value pair valueType: string', function(){
       it('should return an object containing only string values', function(){
         //arrange
         var testObj = {
@@ -185,7 +185,7 @@ describe('brita module', function(){
           four:  '4'
         };
         var filter = {
-          value: 'string'
+          valueType: 'string'
         };
         var expected = {
           two:  '2',
@@ -198,7 +198,7 @@ describe('brita module', function(){
       });
     });
 
-    describe('a filter object with key value pair value: number', function(){
+    describe('a filter object with key value pair valueType: number', function(){
       it('should return an object containing only number values', function(){
         //arrange
         var testObj = {
@@ -208,7 +208,7 @@ describe('brita module', function(){
           four:  '4'
         };
         var filter = {
-          value: 'number'
+          valueType: 'number'
         };
         var expected = {
           one:   1,
