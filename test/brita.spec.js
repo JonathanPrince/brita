@@ -221,6 +221,26 @@ describe('brita module', function(){
       });
     });
 
+    describe('a filter object with key value pair keyFilter: /abc/', function(){
+      it('should return all key value pairs where key name contains abc', function(){
+        var testObj = {
+          abc: 'yes',
+          dabc: 'yes',
+          adbc: 'no',
+          bcda: 'no'
+        };
+        var filter = {
+          keyFilter: /abc/
+        };
+        var expected = {
+          abc: 'yes',
+          dabc: 'yes'
+        };
+        var result = brita(testObj, filter);
+        expect(result).to.eql(expected);
+      });
+    });
+
   });
 
 });
