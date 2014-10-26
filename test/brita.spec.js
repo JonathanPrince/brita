@@ -30,7 +30,7 @@ describe('brita module', function(){
         var randomStr = 'random';
         var filterFunc = function(){};
         //act
-        var result = catchErr(brita, randomStr, filterFunc);
+        var result = catchErr({func: brita, args: [randomStr, filterFunc]});
         //assert
         expect(result).to.be.an(Error);
       });
@@ -42,7 +42,7 @@ describe('brita module', function(){
         var testObj = {};
         var str = 'string';
         //act
-        var result = catchErr(brita, testObj, str);
+        var result = catchErr({func: brita, args: [testObj, str]});
         //assert
         expect(result).to.be.an(Error);
       });
@@ -54,7 +54,7 @@ describe('brita module', function(){
         var testObj = {};
         var num = 5;
         //act
-        var result = catchErr(brita, testObj, num);
+        var result = catchErr({func: brita, args: [testObj, num]});
         //assert
         expect(result).to.be.an(Error);
       });
@@ -248,7 +248,7 @@ describe('brita module', function(){
           var filter = {
             keyFilter: 'not a regular expression'
           };
-          var result = catchErr(brita, testObj, filter);
+          var result = catchErr({func: brita, args: [testObj, filter]});
           expect(result).to.be.an(Error);
         });
       });
