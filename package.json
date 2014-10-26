@@ -1,6 +1,6 @@
 {
   "name": "brita",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Object Filter Module for nodejs",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/JonathanPrince/brita",
   "devDependencies": {
-    "catch-error": "0.0.1",
+    "catch-error": "^1.0.0",
     "expect.js": "^0.3.1",
     "jshint": "^2.5.6",
     "mocha": "^1.21.5",
