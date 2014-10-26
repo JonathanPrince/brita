@@ -22,7 +22,7 @@ module.exports = function(obj, filter){
     }
   };
 
-  var filterObject = function(objectToFilter, filterFunction){
+  var filterObjectByValue = function(objectToFilter, filterFunction){
 
     var result = {};
 
@@ -43,14 +43,37 @@ module.exports = function(obj, filter){
 
   };
 
-  // if filter argument is a function apply with filterObject() and return
+  var filterObjectByKey = function(objectToFilter, keyFilter){
+
+    var result = {};
+
+    Object.keys(objectToFilter).forEach(function(key){
+      if(keyFilter.test(key)){
+        result[key] = objectToFilter[key];
+      }
+    });
+
+    return result;
+  };
+
+  // if filter argument is a function apply with filterObjectByValue() and return
   if (typeof filter === 'function'){
 
-    return filterObject(obj, filter);
+    return filterObjectByValue(obj, filter);
 
   } else if (typeof filter === 'object') {
 
-    return filterObject(obj, objectFilter);
+    if(filter.hasOwnProperty('keyFilter')){
+
+      var keyFilter = filter.keyFilter;
+
+      assert.ok(keyFilter instanceof RegExp, 'keyFilter should be a regular expresion');
+
+      return filterObjectByKey(obj, keyFilter);
+
+    }
+
+    return filterObjectByValue(obj, objectFilter);
 
   }
 

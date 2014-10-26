@@ -221,6 +221,39 @@ describe('brita module', function(){
       });
     });
 
+    describe('a filter object with key keyFilter', function(){
+      describe('with value: /abc/', function(){
+        it('should return all key value pairs where key name contains abc', function(){
+          var testObj = {
+            abc: 'yes',
+            dabc: 'yes',
+            adbc: 'no',
+            bcda: 'no'
+          };
+          var filter = {
+            keyFilter: /abc/
+          };
+          var expected = {
+            abc: 'yes',
+            dabc: 'yes'
+          };
+          var result = brita(testObj, filter);
+          expect(result).to.eql(expected);
+        });
+      });
+
+      describe('with a value that is not a regular expression', function(){
+        it('should throw an exception', function(){
+          var testObj = {};
+          var filter = {
+            keyFilter: 'not a regular expression'
+          };
+          var result = catchErr(brita, testObj, filter);
+          expect(result).to.be.an(Error);
+        });
+      });
+
+    });
   });
 
 });

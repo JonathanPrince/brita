@@ -68,6 +68,7 @@ Built-in filter options can be used by passing an object as the second parameter
 |---------|------------|------------------|
 | valueType   | 'string'   |returns all key value pairs with values that are strings |
 | valueType   | 'number'   |returns all key value pairs with values that are numbers |
+| keyFilter   | RegExp     |returns all key value pairs with keys that match regular expression |
 
 
 Example using built-in type filter
@@ -87,7 +88,27 @@ var myObject = {
 var filteredObject = brita(myObject, {valueType: 'string'});
 
 // output from brita has been assigned to filteredObject
-console.log(filteredObject)             //   returns { key2: '2', key4: '4' }
+console.log(filteredObject);             //   returns { key2: '2', key4: '4' }
 
 ```
 
+Example using regular expression to filter by key
+```js
+// require brita module
+var brita = require('brita');
+
+// object to be filtered
+var myObject = {
+  abc1: 'a',
+  abc2: 'b',
+  def1: 'c',
+  def2: 'd'
+};
+
+//apply filter to create new object filter by brita
+var filteredObject = brita(myObject, {keyFilter: /abc/});
+
+// output from brita has been assigned to filteredObject
+console.log(filteredObject);             //   returns { abc1: 'a', abc2: 'b' }
+
+```
