@@ -43,14 +43,12 @@ module.exports = function(obj, filter){
 
   };
 
-  var filterObjectByKey = function(objectToFilter){
-
-    var regEx = filter.keyFilter;
+  var filterObjectByKey = function(objectToFilter, keyFilter){
 
     var result = {};
 
     Object.keys(objectToFilter).forEach(function(key){
-      if(regEx.test(key)){
+      if(keyFilter.test(key)){
         result[key] = objectToFilter[key];
       }
     });
@@ -67,7 +65,11 @@ module.exports = function(obj, filter){
 
     if(filter.hasOwnProperty('keyFilter')){
 
-      return filterObjectByKey(obj);
+      var keyFilter = filter.keyFilter;
+
+      assert.ok(keyFilter instanceof RegExp, 'keyFilter should be a regular expresion');
+
+      return filterObjectByKey(obj, keyFilter);
 
     }
 
