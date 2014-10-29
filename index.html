@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Brita by JonathanPrince</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Brita</h1>
+        <p>Object Filter Module for nodejs</p>
+        <p class="view"><a href="https://github.com/JonathanPrince/brita">View the Project on GitHub <small>JonathanPrince/brita</small></a></p>
+        <ul>
+          <li><a href="https://github.com/JonathanPrince/brita/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/JonathanPrince/brita/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/JonathanPrince/brita">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="brita" class="anchor" href="#brita"><span class="octicon octicon-link"></span></a>brita</h1>
+
+<p><a href="https://travis-ci.org/JonathanPrince/brita"><img src="https://travis-ci.org/JonathanPrince/brita.svg?branch=master" alt="Build Status"></a></p>
+
+<p><a href="https://nodei.co/npm/brita/"><img src="https://nodei.co/npm/brita.png?downloads=true" alt="NPM"></a></p>
+
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Object Filter Module for nodejs</p>
+
+<h3>
+<a name="syntax" class="anchor" href="#syntax"><span class="octicon octicon-link"></span></a>Syntax</h3>
+
+<p><code>brita(object, filter)</code></p>
+
+<h4>
+<a name="parameters" class="anchor" href="#parameters"><span class="octicon octicon-link"></span></a>Parameters</h4>
+
+<p><strong>object</strong></p>
+
+<p>Object to be filtered</p>
+
+<p><strong>filter</strong></p>
+
+<p>Function or Object.</p>
+
+<p>A function to be used to filter the object, should return true or false.</p>
+
+<p>An object containing filter options.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Install the brita module using npm</p>
+
+<pre><code>$ npm install brita
+</code></pre>
+
+<p>Basic Example</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// require brita module</span>
+<span class="kd">var</span> <span class="nx">brita</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'brita'</span><span class="p">);</span>
+
+<span class="c1">// object to be filtered</span>
+<span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">key1</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">key2</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="nx">key3</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nx">key4</span><span class="o">:</span> <span class="mi">4</span>
+<span class="p">};</span>
+
+<span class="c1">// filter function</span>
+<span class="kd">var</span> <span class="nx">myFilter</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>
+
+    <span class="c1">// return true for values less than 3</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+
+<span class="c1">// apply filter to create new object filtered by brita</span>
+<span class="kd">var</span> <span class="nx">filteredObject</span> <span class="o">=</span> <span class="nx">brita</span><span class="p">(</span><span class="nx">myObject</span><span class="p">,</span> <span class="nx">myFilter</span><span class="p">);</span>
+
+<span class="c1">// output from brita has been assigned to filteredObject</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filteredObject</span><span class="p">)</span>             <span class="c1">//   returns { key1: 1, key2: 2 }</span>
+
+</pre></div>
+
+<h3>
+<a name="using-built-in-filter-options" class="anchor" href="#using-built-in-filter-options"><span class="octicon octicon-link"></span></a>Using built in filter options</h3>
+
+<p>Built-in filter options can be used by passing an object as the second parameter.</p>
+
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>valueType</td>
+<td>'string'</td>
+<td>returns all key value pairs with values that are strings</td>
+</tr>
+<tr>
+<td>valueType</td>
+<td>'number'</td>
+<td>returns all key value pairs with values that are numbers</td>
+</tr>
+<tr>
+<td>keyFilter</td>
+<td>RegExp</td>
+<td>returns all key value pairs with keys that match regular expression</td>
+</tr>
+</tbody>
+</table>
+
+<p>Example using built-in type filter</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// require brita module</span>
+<span class="kd">var</span> <span class="nx">brita</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'brita'</span><span class="p">);</span>
+
+<span class="c1">// object to be filtered</span>
+<span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">key1</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nx">key2</span><span class="o">:</span> <span class="s1">'2'</span><span class="p">,</span>
+    <span class="nx">key3</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="nx">key4</span><span class="o">:</span> <span class="s1">'4'</span>
+<span class="p">};</span>
+
+<span class="c1">// apply filter to create new object filtered by brita</span>
+<span class="kd">var</span> <span class="nx">filteredObject</span> <span class="o">=</span> <span class="nx">brita</span><span class="p">(</span><span class="nx">myObject</span><span class="p">,</span> <span class="p">{</span><span class="nx">valueType</span><span class="o">:</span> <span class="s1">'string'</span><span class="p">});</span>
+
+<span class="c1">// output from brita has been assigned to filteredObject</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filteredObject</span><span class="p">);</span>             <span class="c1">//   returns { key2: '2', key4: '4' }</span>
+
+</pre></div>
+
+<p>Example using regular expression to filter by key</p>
+
+<div class="highlight highlight-js"><pre><span class="c1">// require brita module</span>
+<span class="kd">var</span> <span class="nx">brita</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'brita'</span><span class="p">);</span>
+
+<span class="c1">// object to be filtered</span>
+<span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">abc1</span><span class="o">:</span> <span class="s1">'a'</span><span class="p">,</span>
+  <span class="nx">abc2</span><span class="o">:</span> <span class="s1">'b'</span><span class="p">,</span>
+  <span class="nx">def1</span><span class="o">:</span> <span class="s1">'c'</span><span class="p">,</span>
+  <span class="nx">def2</span><span class="o">:</span> <span class="s1">'d'</span>
+<span class="p">};</span>
+
+<span class="c1">//apply filter to create new object filter by brita</span>
+<span class="kd">var</span> <span class="nx">filteredObject</span> <span class="o">=</span> <span class="nx">brita</span><span class="p">(</span><span class="nx">myObject</span><span class="p">,</span> <span class="p">{</span><span class="nx">keyFilter</span><span class="o">:</span> <span class="sr">/abc/</span><span class="p">});</span>
+
+<span class="c1">// output from brita has been assigned to filteredObject</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filteredObject</span><span class="p">);</span>             <span class="c1">//   returns { abc1: 'a', abc2: 'b' }</span>
+
+</pre></div>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/JonathanPrince">JonathanPrince</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-56247410-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
