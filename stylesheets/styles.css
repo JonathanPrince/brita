@@ -64,6 +64,8 @@ header {
   background: -o-linear-gradient(#ddfbfc, #c6eafa);
   background: -ms-linear-gradient(#ddfbfc, #c6eafa);
   background: linear-gradient(#ddfbfc, #c6eafa);
+  background-image: url('../images/header_bg.png');
+  background-repeat: no-repeat;
   position: relative;
   padding: 15px 20px;
   border-bottom: 1px solid #B2D2E1;
