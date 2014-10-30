@@ -1,6 +1,6 @@
 {
   "name": "brita",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "Object Filter Module for nodejs",
   "main": "index.js",
   "scripts": {
@@ -13,8 +13,8 @@
     "url": "https://github.com/JonathanPrince/brita.git"
   },
   "keywords": [
+    "object filter",
     "object",
-    "filter",
     "filter"
   ],
   "author": "Jonathan Prince <jonathan.prince@gmail.com>",
@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/JonathanPrince/brita/issues"
   },
-  "homepage": "https://github.com/JonathanPrince/brita",
+  "homepage": "https://jonathanprince.github.io/brita",
   "devDependencies": {
     "catch-error": "^1.0.0",
     "expect.js": "^0.3.1",
