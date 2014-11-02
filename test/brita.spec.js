@@ -221,6 +221,29 @@ describe('brita module', function(){
       });
     });
 
+    describe('a filter object with key value pair valueType: boolean', function(){
+      it('should return an object containing only boolean values', function(){
+        //arrange
+        var testObj = {
+          one:   1,
+          two:   true,
+          three: 3,
+          four:  false
+        };
+        var filter = {
+          valueType: 'boolean'
+        };
+        var expected = {
+          two: true,
+          four: false,
+        };
+        // act
+        var result = brita(testObj, filter);
+        // assert
+        expect(result).to.eql(expected);
+      });
+    });
+
     describe('a filter object with key keyFilter', function(){
       describe('with value: /abc/', function(){
         it('should return all key value pairs where key name contains abc', function(){
