@@ -11,15 +11,21 @@ module.exports = function(obj, filter){
 
   var objectFilter = function(value){
 
-    if (typeof value === filter.valueType) {
+    switch(filter.valueType) {
 
-      return true;
+      case 'string':
+      case 'boolean':
+      case 'number':
+        return (typeof value === filter.valueType) ? true : false;
 
-    } else {
+      case 'array':
+        return (Array.isArray(value)) ? true : false;
 
-      return false;
+      default:
+        return false;
 
     }
+
   };
 
   var filterObjectByValue = function(objectToFilter, filterFunction){
