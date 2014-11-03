@@ -24,6 +24,9 @@ module.exports = function(obj, filter){
       case 'regex':
         return (value instanceof RegExp) ? true : false;
 
+      case 'object':
+        return (Object.prototype.toString.call(value) === '[object Object]') ? true : false;
+
       default:
         return false;
 
