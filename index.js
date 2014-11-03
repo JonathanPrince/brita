@@ -21,6 +21,9 @@ module.exports = function(obj, filter){
       case 'array':
         return (Array.isArray(value)) ? true : false;
 
+      case 'regex':
+        return (value instanceof RegExp) ? true : false;
+
       default:
         return false;
 
