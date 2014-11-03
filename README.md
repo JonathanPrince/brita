@@ -69,6 +69,9 @@ Built-in filter options can be used by passing an object as the second parameter
 | valueType   | 'string'   |returns all key value pairs with values that are strings |
 | valueType   | 'number'   |returns all key value pairs with values that are numbers |
 | valueType   | 'boolean'  |returns all key value pairs with values that are booleans |
+| valueType   | 'array'    |returns all key value pairs with values that are arrays   |
+| valueType   | 'object'   |returns all key value pairs with values that are objects  |
+| valueType   | 'regex'    |returns all key value pairs with values that are regular expressions |
 | keyFilter   | RegExp     |returns all key value pairs with keys that match regular expression |
 
 
